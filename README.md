@@ -19,9 +19,9 @@ It supports adding students, displaying all records, searching students by roll 
 
 Student-Management-System/
 │
-|
+
 ├── main.java              # Main driver class with menu
-|
+
 ├── Student.java           # Model class for Student data
-|
+
 └── StudentService.java    # Handles logic, storage & search
