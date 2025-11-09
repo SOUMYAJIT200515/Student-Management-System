@@ -13,7 +13,7 @@ public class AppLogger {
             logger.addHandler(fileHandler);
             logger.setUseParentHandlers(true);
         } catch (IOException e) {
-            System.out.println("⚠ Could not create log file: " + e.getMessage());
+            System.out.println("Could not create log file: " + e.getMessage());
         }
     }
 
