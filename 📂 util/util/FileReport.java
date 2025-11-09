@@ -9,9 +9,9 @@ public class FileReport {
     public void addFail() { total++; failed++; }
 
     public void printReport(String type) {
-        System.out.println("\n📊 " + type + " Summary:");
+        System.out.println("\n " + type + " Summary:");
         System.out.println("Total records: " + total);
-        System.out.println("✅ Successful: " + success);
-        System.out.println("❌ Failed: " + failed);
+        System.out.println(" Successful: " + success);
+        System.out.println(" Failed: " + failed);
     }
 }
