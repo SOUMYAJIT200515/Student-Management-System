@@ -1,27 +1,40 @@
-🧑‍🎓 Student Management System (Java)
+# 🎓 Student Management System (Java)
 
-A simple Java console-based application that allows you to manage student records efficiently.
-It supports adding students, displaying all records, searching students by roll number (using binary search), and automatically sorting them by roll number.
+A robust and clean **console-based Student Management System** built in **Java**, designed for easy file-based student record management with real-world gradebook and database structure ideas.  
 
-🚀 Features
+This project demonstrates **file I/O**, **exception handling**, **object-oriented programming**, **sorting**, **binary search**, and **clean console UI formatting** — making it an ideal mini-project for learning and showcasing core Java development skills.
 
-➕ Add Student — Enter roll number, name, and marks for 3 subjects.
+---
 
-📋 Display All Students — Shows a formatted list with marks, average, and grade.
+## 🚀 Features
 
-🔍 Search Student — Finds a student quickly using binary search.
+✅ **File Import & Export**
+- Load student data directly from a CSV file.
+- Export updated student records to a new output CSV.
 
-🧮 Automatic Average & Grade Calculation.
+✅ **Add & Display Students**
+- Add students manually from the terminal.
+- Display all students in a clean tabular format with proper alignment.
 
-🧾 Sorted by Roll Number for easy lookup.
+✅ **Search Functionality**
+- **Binary Search by ID** (after sorting).
+- **Linear Search by Name** for flexible lookup.
 
-🧱 Project Structure
+✅ **Sorting Options**
+- Sort students by **ID** (ascending).
+- Sort students by **CGPA** (descending).
+- Categorize students by **Department** and sort within.
 
-Student-Management-System/
-│
+✅ **Error & Exception Handling**
+- Handles missing files, invalid data, or incorrect formats.
+- Uses `try-with-resources` for safe file operations.
 
-├── main.java              # Main driver class with menu
+✅ **Random Data Generator**
+- Instantly generate random student lists for testing.
 
-├── Student.java           # Model class for Student data
+✅ **Professional Structure**
+- Divided into logical packages:  
+  - `model/` → Student class  
+  - `util/` → File handling utilities  
+  - `Main.java` → Menu-driven interface
 
-└── StudentService.java    # Handles logic, storage & search
