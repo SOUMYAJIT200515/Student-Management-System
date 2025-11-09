@@ -7,7 +7,7 @@ import java.util.*;
 
 public class StudentFileHandler {
 
-    // ✅ Validate file before reading
+    //  Validate file before reading
     private static boolean isFileValid(String filePath) {
         File file = new File(filePath);
         if (!file.exists()) {
@@ -21,7 +21,7 @@ public class StudentFileHandler {
         return true;
     }
 
-    // ✅ Backup file before writing
+    // Backup file before writing
     private static void backupFile(String filePath) {
         Path source = Paths.get(filePath);
         if (Files.exists(source)) {
@@ -35,7 +35,7 @@ public class StudentFileHandler {
         }
     }
 
-    // ✅ Import students from file
+    //  Import students from file
     public static List<Student> importFromFile(String filePath) {
         List<Student> students = new ArrayList<>();
         FileReport report = new FileReport();
@@ -78,7 +78,7 @@ public class StudentFileHandler {
         return students;
     }
 
-    // ✅ Export students to file
+    //  Export students to file
     public static void exportToFile(String filePath, List<Student> students) {
         FileReport report = new FileReport();
         backupFile(filePath);
