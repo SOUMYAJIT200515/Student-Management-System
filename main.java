@@ -8,7 +8,7 @@ public class main {
     private static final String INPUT_FILE = "students.csv";
     private static final String OUTPUT_FILE = "students_output.csv";
     private static List<Student> students = new ArrayList<>();
-    private static boolean isSortedById = false; // ✅ Track sorting state
+    private static boolean isSortedById = false; //  Track sorting state
 
     public static void main(String[] args) {
         int choice;
@@ -24,24 +24,24 @@ public class main {
                 case 6 -> sortById();
                 case 7 -> sortByCgpa();
                 case 8 -> categorizeByDept();
-                case 0 -> System.out.println("👋 Exiting program...");
-                default -> System.out.println("⚠ Invalid choice, please try again.");
+                case 0 -> System.out.println(" Exiting program...");
+                default -> System.out.println(" Invalid choice, please try again.");
             }
         } while (choice != 0);
     }
 
     // ---------------- Menu ----------------
     private static void printMenu() {
-        System.out.println("\n===== 🎓 Student Management System =====");
-        System.out.println("1️⃣  Load students from file");
-        System.out.println("2️⃣  Display all students");
-        System.out.println("3️⃣  Add a new student");
-        System.out.println("4️⃣  Search student");
-        System.out.println("5️⃣  Export students to file");
-        System.out.println("6️⃣  Sort by ID");
-        System.out.println("7️⃣  Sort by CGPA");
-        System.out.println("8️⃣  Categorize by Department");
-        System.out.println("0️⃣  Exit");
+        System.out.println("\n=====   Student Management System =====");
+        System.out.println("1️:  Load students from file");
+        System.out.println("2️:  Display all students");
+        System.out.println("3️:  Add a new student");
+        System.out.println("4️:  Search student");
+        System.out.println("5️:  Export students to file");
+        System.out.println("6️:  Sort by ID");
+        System.out.println("7️:  Sort by CGPA");
+        System.out.println("8️:  Categorize by Department");
+        System.out.println("0️:  Exit");
         System.out.println("=======================================");
     }
 
@@ -49,16 +49,16 @@ public class main {
     private static void loadFromFile() {
         students = StudentFileHandler.importFromFile(INPUT_FILE);
         isSortedById = false;
-        System.out.println("📂 Loaded " + students.size() + " students from file.");
+        System.out.println(" Loaded " + students.size() + " students from file.");
     }
 
     private static void displayStudents() {
         if (students.isEmpty()) {
-            System.out.println("⚠ No student data available.");
+            System.out.println(" No student data available.");
             return;
         }
 
-        printStudentTable(students, "🎓 STUDENT RECORDS");
+        printStudentTable(students, " STUDENT RECORDS");
     }
 
     private static void addStudent() {
@@ -78,24 +78,24 @@ public class main {
 
         students.add(new Student(id, name, dept, cgpa));
         isSortedById = false;
-        System.out.println("✅ Student added successfully!");
+        System.out.println(" Student added successfully!");
     }
 
     // ---------------- Binary Search & Regular Search ----------------
     private static void searchStudent() {
         if (students.isEmpty()) {
-            System.out.println("⚠ No student data to search.");
+            System.out.println(" No student data to search.");
             return;
         }
 
         System.out.println("\n🔍 Search Options:");
-        System.out.println("1️⃣  Search by ID (Binary Search)");
-        System.out.println("2️⃣  Search by Name (Linear Search)");
+        System.out.println("1️:  Search by ID (Binary Search)");
+        System.out.println("2️:  Search by Name (Linear Search)");
         int option = getInt("Choose search type: ");
 
         if (option == 1) {
             if (!isSortedById) {
-                System.out.println("⚠ Data not sorted by ID. Sorting automatically...");
+                System.out.println(" Data not sorted by ID. Sorting automatically...");
                 sortById();
             }
 
@@ -103,9 +103,9 @@ public class main {
             int index = binarySearchById(students, id);
 
             if (index == -1) {
-                System.out.println("❌ No student found with ID: " + id);
+                System.out.println(" No student found with ID: " + id);
             } else {
-                printStudentTable(List.of(students.get(index)), "🔎 SEARCH RESULT (BY ID)");
+                printStudentTable(List.of(students.get(index)), " SEARCH RESULT (BY ID)");
             }
 
         } else if (option == 2) {
@@ -120,12 +120,12 @@ public class main {
             }
 
             if (found.isEmpty()) {
-                System.out.println("❌ No matching student found.");
+                System.out.println(" No matching student found.");
             } else {
-                printStudentTable(found, "🔎 SEARCH RESULTS (BY NAME)");
+                printStudentTable(found, " SEARCH RESULTS (BY NAME)");
             }
         } else {
-            System.out.println("⚠ Invalid choice.");
+            System.out.println(" Invalid choice.");
         }
     }
 
@@ -150,40 +150,40 @@ public class main {
 
     private static void exportToFile() {
         if (students.isEmpty()) {
-            System.out.println("⚠ Nothing to export.");
+            System.out.println(" Nothing to export.");
             return;
         }
         StudentFileHandler.exportToFile(OUTPUT_FILE, students);
-        System.out.println("💾 Students exported to " + OUTPUT_FILE);
+        System.out.println(" Students exported to " + OUTPUT_FILE);
     }
 
     // ---------------- Sorting ----------------
     private static void sortById() {
         if (students.isEmpty()) {
-            System.out.println("⚠ No data to sort.");
+            System.out.println(" No data to sort.");
             return;
         }
 
         students.sort(Comparator.comparingInt(Student::getId));
         isSortedById = true;
-        printStudentTable(students, "📊 SORTED BY ID (ASCENDING)");
+        printStudentTable(students, " SORTED BY ID (ASCENDING)");
     }
 
     private static void sortByCgpa() {
         if (students.isEmpty()) {
-            System.out.println("⚠ No data to sort.");
+            System.out.println(" No data to sort.");
             return;
         }
 
         students.sort(Comparator.comparingDouble(Student::getCgpa).reversed());
         isSortedById = false;
-        printStudentTable(students, "📊 SORTED BY CGPA (DESCENDING)");
+        printStudentTable(students, " SORTED BY CGPA (DESCENDING)");
     }
 
     // ---------------- Categorize ----------------
     private static void categorizeByDept() {
         if (students.isEmpty()) {
-            System.out.println("⚠ No data available.");
+            System.out.println(" No data available.");
             return;
         }
 
@@ -192,7 +192,7 @@ public class main {
             departments.add(s.getDepartment().toUpperCase());
         }
 
-        System.out.println("\n🏛 Available Departments:");
+        System.out.println("\n Available Departments:");
         for (String d : departments) {
             System.out.println(" - " + d);
         }
@@ -208,15 +208,15 @@ public class main {
         }
 
         if (filtered.isEmpty()) {
-            System.out.println("❌ No students found in department: " + dept);
+            System.out.println(" No students found in department: " + dept);
             return;
         }
 
         System.out.println("""
             Choose Sorting Option:
-            1️⃣  Sort by ID
-            2️⃣  Sort by CGPA
-            0️⃣  No Sorting
+            1️:  Sort by ID
+            2️:  Sort by CGPA
+            0️:  No Sorting
             """);
         int choice = getInt("Enter your choice: ");
         switch (choice) {
